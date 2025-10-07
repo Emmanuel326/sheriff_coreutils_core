@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 	{
 		FILE *fp;
 		//handle "-" as stdin
-		if(strcmp(arg[i], "-")==0)
+		if(strcmp(argv[i], "-")==0)
 		{
 			fp=stdin;
 		}
