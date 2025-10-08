@@ -45,3 +45,29 @@ int main(int argc, char *argv[])
 
 	return 0;
 }
+
+
+/*
+ * // --- Experimental super-fast version (commented out) ---
+    // This is just a concept using fread/fwrite + intrinsics (SSE/AVX)
+    // to process larger chunks at once instead of byte-by-byte.
+
+    #include <immintrin.h>
+
+    #define BUF_SIZE 4096
+    unsigned char buf[BUF_SIZE];
+    size_t n;
+
+    while ((n = fread(buf, 1, BUF_SIZE, stdin)) > 0) {
+        // Write to stdout
+        fwrite(buf, 1, n, stdout);
+
+        // Example vectorized broadcast (dummy idea)
+        // __m256i data = _mm256_loadu_si256((__m256i*)buf);
+        // _mm256_stream_si256((__m256i*)dest, data);
+
+        for (int i = 0; i < num_files; i++)
+            fwrite(buf, 1, n, files[i]);
+    }
+    */
+
