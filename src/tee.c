@@ -25,4 +25,18 @@ int main(int argc, char *argv[])
 		perror("Malloc");
 		return 1;
 	}
+	for(int i =0; i<num_files;i++)
+	{
+		files[i] =fopen(argv[start_index + i], append_mode ? "a" : "w")
+			if(!files[i])
+			{
+				perror(argv[start_index + 1]);
+				//close any opened files before we exit
+				for(int j =0;j<i;j++)
+					fclose(files[j]);
+				free(files);
+				return 1;
+			}
+	}
+	//cleaning
 }
