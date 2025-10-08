@@ -39,4 +39,9 @@ int main(int argc, char *argv[])
 			}
 	}
 	//cleaning
+	for(int i=0;i<num_files; i++)
+		fclose(files[i]);
+	free(files);
+
+	return 0;
 }
