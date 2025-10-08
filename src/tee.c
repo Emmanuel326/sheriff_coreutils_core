@@ -17,4 +17,12 @@ int main(int argc, char *argv[])
 		append_mode =1;
 		start_index =2;
 	}
+	//open all files
+	int num_files = argc - start_index;
+	FILE **files = malloc(num_files * sizeof(FILE *));
+	if(!files)
+	{
+		perror("Malloc");
+		return 1;
+	}
 }
